@@ -36,7 +36,7 @@
     "ni"
   ],
   "author": "TomHudson",
-  "license": "MIT",
+  "license": "GNU GPLv3",
   "devDependencies": {
     "@types/jest": "^29.0.3",
     "ts-jest": "^29.0.2",

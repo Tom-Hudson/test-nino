@@ -3,3 +3,5 @@ src
 .gitignore
 jest.config.js
 tsconfig.json
+**.spec.js
+LICENSE.txt
