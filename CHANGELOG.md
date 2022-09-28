@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Tom-Hudson/test-nino/compare/v1.0.0...v1.0.1) (2022-09-28)
+
+
+### Bug Fixes
+
+* npmignore list ([282e07c](https://github.com/Tom-Hudson/test-nino/commit/282e07cca36fe6fe9f9fbd9cfae986fb5e0768bd))
+
 ## 1.0.0 (2022-09-28)
 
 
