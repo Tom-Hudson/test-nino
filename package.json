@@ -2,15 +2,27 @@
   "name": "test-nino",
   "version": "0.0.1",
   "description": "The fastest UK National Insurance number generator (nino). Generates a random valid UK NI number in accordance with NIM39110 guidelines on Gov.uk",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --minify",
+    "watch": "npm run build -- --watch src",
+    "lint": "ts-standard ./src",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest"
   },
   "keywords": [
     "test-nino",
     "national",
     "insurance",
-    "ni",
     "number",
     "generator",
     "test",
@@ -18,16 +30,18 @@
     "fake",
     "national",
     "insurance",
-    "number",
     "uk",
-    "ni",
-    "number",
     "generator",
     "random",
-    "ni",
-    "random",
-    "nino"
+    "ni"
   ],
   "author": "TomHudson",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.0.3",
+    "ts-jest": "^29.0.2",
+    "ts-standard": "^11.0.0",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4"
+  }
 }
