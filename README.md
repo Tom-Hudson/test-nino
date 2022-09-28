@@ -1,6 +1,14 @@
 # test-nino
 
-The fastest UK National Insurance number generator.
+The fastest random UK National Insurance number generator.
+
+- [Getting Started](#getting-started)
+  * [Install](#install)
+  * [Import](#import)
+  * [Use](#use)
+- [How fast can it be?](#how-fast-can-it-be-)
+- [What makes it so fast?](#what-makes-it-so-fast-)
+- [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number-)
 
 ## Getting Started
 
@@ -16,12 +24,12 @@ npm i test-nino
 import * as testNino from 'test-nino';
 
 // CommonJS
-const testNino = require(test-nino');
+const testNino = require('test-nino');
 ```
 
 ### Use
 ```
-const nino = testNino.random()
+const nino = testNino.random();
 // Returns a valid UK National Insurance number e.g. AA000000A
 ```
 
@@ -39,11 +47,11 @@ Here is how `test-nino` fares against other packages:
 As you can see, `test-nino` is more than 2x faster than the next fastest random NI number generator
 
 ## What makes it so fast?
-Other packages out there use loops which go through the process of `Generate random NINO > is it valid? > no > repeat`, until a valid nino is given.
+Other packages use loops which go through the process of `Generate random NINO > is it valid? > no > repeat`, until a valid nino is given.
 
-This can mean that precious CPU resources and the Node Event Loop is being blocked.
+This costs precious CPU time and blocks the Node Event Loop.
 
-`test-nino` has been made a lot simpler and just stores a the complete list of valid prefixes and suffixes which are then just looked up at random. No loops, so this gives us big-O of O(1) vs O(?)
+`test-nino` has been made a lot simpler and just stores the complete list of valid prefixes which are then picked at random. No loops, so this gives the `random` function a BigO complexity of O(1) vs O(?)
 
 ## What is a valid UK National Insurance number?
 To cite the rules at the time of implementation from [Gov.uk](https://www.gov.uk/hmrc-internal-manuals/national-insurance-manual/nim39110):
