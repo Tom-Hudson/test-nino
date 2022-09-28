@@ -50,7 +50,7 @@ const randomNumberBetween = (min: number, max: number): number => Math.floor(Mat
  * https://www.gov.uk/hmrc-internal-manuals/national-insurance-manual/nim39110
  * @returns string
  */
-export const generateNiNumber = (): string => {
+export const random = (): string => {
   const prefix = getRandomValue(validPrefixes)
   const suffix = getRandomValue(validSuffixes)
 

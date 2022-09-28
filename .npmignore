@@ -2,3 +2,4 @@ src
 README.md
 tsconfig.eslint.json
 .gitignore
+**.spec.js
