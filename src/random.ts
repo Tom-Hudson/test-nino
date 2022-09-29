@@ -1,4 +1,4 @@
-import { maxNumber, minNumber, validPrefixes, validSuffixes } from './data'
+import { maxNumber, minNumber, numberLength, validPrefixes, validSuffixes } from './data'
 import { getRandomValue, randomNumberBetween, toFixedDigitString } from './utils'
 
 /**
@@ -12,7 +12,7 @@ export const random = (): string => {
 
   // 000001 is a valid, so padding the start of the string with '0' includes 000001-099999
   const randomNumber = randomNumberBetween(minNumber, maxNumber)
-  const numbers = toFixedDigitString(randomNumber, 6)
+  const numbers = toFixedDigitString(randomNumber, numberLength)
 
   return `${prefix}${numbers}${suffix}`
 }
