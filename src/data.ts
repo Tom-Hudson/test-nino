@@ -40,3 +40,6 @@ export const validPrefixes = [
 ]
 
 export const validSuffixes = ['A', 'B', 'C', 'D']
+
+export const minNumber = 0
+export const maxNumber = 999999

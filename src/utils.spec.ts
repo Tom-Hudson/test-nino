@@ -1,5 +1,5 @@
 import { expect, describe, it } from '@jest/globals'
-import { getRandomValue, randomNumberBetween } from './utils'
+import { getRandomValue, randomNumberBetween, toFixedDigitString } from './utils'
 
 describe('utils', () => {
   describe('getRandomValue', () => {
@@ -22,6 +22,19 @@ describe('utils', () => {
 
       expect(actual).toBeGreaterThanOrEqual(min)
       expect(actual).toBeLessThanOrEqual(max)
+    })
+  })
+
+  describe('toFixedDigitString', () => {
+    it.each([
+      [6, 6, '000006'],
+      [5000, 5, '05000'],
+      [123, 3, '123'],
+      [123, 10, '0000000123']
+    ])('should ', (num, minLength, expected) => {
+      const actual = toFixedDigitString(num, minLength)
+
+      expect(actual).toEqual(expected)
     })
   })
 })
