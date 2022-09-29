@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Tom-Hudson/test-nino/compare/v1.0.2...v1.1.0) (2022-09-29)
+
+
+### Features
+
+* add incremental generator function ([dd987fb](https://github.com/Tom-Hudson/test-nino/commit/dd987fb2c411b2c16e2888330d4487fad5f70fe0))
+
 ## [1.0.2](https://github.com/Tom-Hudson/test-nino/compare/v1.0.1...v1.0.2) (2022-09-29)
 
 
