@@ -1,5 +1,5 @@
 import { expect, describe, it } from '@jest/globals'
-import { random } from './index'
+import { random } from './random'
 
 describe('random', () => {
   it('should generate a valid nino', () => {
