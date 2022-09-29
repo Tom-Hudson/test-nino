@@ -38,9 +38,9 @@ Here is how `test-nino` fares against other packages:
 
 | package                                                        | Run 1 | Run 2 | Run 3 | Average | Ops/sec |
 |----------------------------------------------------------------|-------|-------|-------|---------|---------|
-| [fake-nino](https://www.npmjs.com/package/fake-nino)           | 3201  | 3214  | 3213  | 3209.33 | 186,955 |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino) | 2497  | 2459  | 2430  | 2460    | 243,902 |
-| **test-nino**                                                  | 1148  | 1184  | 1150  | 1160.67 | 516,943 |
+| [fake-nino](https://www.npmjs.com/package/fake-nino)           | 3,201 | 3,214 | 3,213 | 3,209   | 186,955 |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino) | 2,497 | 2,459 | 2,430 | 2,460   | 243,902 |
+| **test-nino**                                                  | 1,148 | 1,184 | 1,150 | 1,161   | 516,943 |
 
 > Benchmarks ran on an i7 3.0Ghz with 16GB RAM, using Node 16. All times for runs and averages are recorded in milliseconds for 10,000,000 runs
 
