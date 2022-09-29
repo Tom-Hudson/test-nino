@@ -4,4 +4,4 @@ src
 jest.config.js
 tsconfig.json
 **.spec.js
-LICENSE.txt
+CHANGELOG.md
