@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.2](https://github.com/Tom-Hudson/test-nino/compare/v1.0.1...v1.0.2) (2022-09-29)
+
+
+### Bug Fixes
+
+* branch pipeline criteria ([5560795](https://github.com/Tom-Hudson/test-nino/commit/5560795c379da8f149c3923e400347a900f00a36))
+* consistency with commas and rounding in README.md ([5c4043e](https://github.com/Tom-Hudson/test-nino/commit/5c4043e063f917fe8b2f8aa764185c5585cfe2fa))
+* missing jest dependency ([950ef1c](https://github.com/Tom-Hudson/test-nino/commit/950ef1c1bda5510bd65c4c3f13021b81bfd42531))
+
 ## [1.0.1](https://github.com/Tom-Hudson/test-nino/compare/v1.0.0...v1.0.1) (2022-09-28)
 
 
