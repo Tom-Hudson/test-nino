@@ -27,6 +27,9 @@ import * as testNino from 'test-nino';
 
 // CommonJS
 const testNino = require('test-nino');
+
+// Deno
+import * as testNino from 'https://deno.land/x/test_nino@1.1.1';
 ```
 
 ## Available functions
