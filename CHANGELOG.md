@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Tom-Hudson/test-nino/compare/v1.1.0...v1.1.1) (2022-10-01)
+
+
+### Bug Fixes
+
+* include mod.ts file for deno ([adece6f](https://github.com/Tom-Hudson/test-nino/commit/adece6f521e6a58d06db9c2287b1a94d88a2a137))
+
 ## [1.1.0](https://github.com/Tom-Hudson/test-nino/compare/v1.0.2...v1.1.0) (2022-09-29)
 
 
