@@ -5,3 +5,4 @@ jest.config.js
 tsconfig.json
 **.spec.js
 CHANGELOG.md
+mod.ts
