@@ -1,10 +1,12 @@
 # test-nino
 
-<img src="https://badgen.net/npm/v/test-nino" />
-<img src="https://badgen.net/packagephobia/publish/test-nino" />
-<img src="https://badgen.net/npm/dt/test-nino" />
-<img src="https://badgen.net/github/last-commit/Tom-Hudson/test-nino" />
-<img src="https://badgen.net/npm/license/test-nino" />
+<p> 
+  <img src="https://badgen.net/npm/v/test-nino" />
+  <img src="https://badgen.net/packagephobia/publish/test-nino" />
+  <img src="https://badgen.net/npm/dt/test-nino" />
+  <img src="https://badgen.net/github/last-commit/Tom-Hudson/test-nino" />
+  <img src="https://badgen.net/npm/license/test-nino" />
+</p>
 
 The fastest random UK National Insurance number generator.
 
