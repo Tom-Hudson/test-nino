@@ -1,5 +1,5 @@
-import { maxNumber, minNumber, numberLength, validPrefixes, validSuffixes } from './data'
-import { getRandomValue, randomNumberBetween, toFixedDigitString } from './utils'
+import { maxNumber, minNumber, numberLength, validPrefixes, validSuffixes } from './internal/data'
+import { getRandomValue, randomNumberBetween, toFixedDigitString } from './internal/utils'
 
 /**
  * Generates a random, valid UK National Insurance number
@@ -10,7 +10,6 @@ export const random = (): string => {
   const prefix = getRandomValue(validPrefixes)
   const suffix = getRandomValue(validSuffixes)
 
-  // 000001 is a valid, so padding the start of the string with '0' includes 000001-099999
   const randomNumber = randomNumberBetween(minNumber, maxNumber)
   const numbers = toFixedDigitString(randomNumber, numberLength)
 

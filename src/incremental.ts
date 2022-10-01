@@ -1,5 +1,5 @@
-import { maxNumber, numberLength, validPrefixes, validSuffixes } from './data'
-import { toFixedDigitString } from './utils'
+import { maxNumber, numberLength, validPrefixes, validSuffixes } from './internal/data'
+import { toFixedDigitString } from './internal/utils'
 
 /**
  * Returns a generator instance to allow you to call `next()`
