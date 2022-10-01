@@ -1,8 +1,10 @@
-src
 .github
 .gitignore
-jest.config.js
-tsconfig.json
 **.spec.js
+**.spec.ts
 CHANGELOG.md
+coverage
+jest.config.js
 mod.ts
+src
+tsconfig.json

@@ -16,9 +16,9 @@ The fastest random UK National Insurance number generator.
 - [Available functions](#available-functions)
   * [random](#random)
   * [incremental](#incremental)
-- [How fast can it be?](#how-fast-can-it-be-)
-  * [What makes it so fast?](#what-makes-it-so-fast-)
-- [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number-)
+- [How fast can it be?](#how-fast-can-it-be)
+  * [What makes it so fast?](#what-makes-it-so-fast)
+- [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number)
 
 ## Getting Started
 
