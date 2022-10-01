@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/Tom-Hudson/test-nino/compare/v1.1.2...v1.1.3) (2022-10-01)
+
+
+### Bug Fixes
+
+* denoland URL in README.md ([319743d](https://github.com/Tom-Hudson/test-nino/commit/319743d758effeb1dc2cdd7b7f34e64d36a4c056))
+
 ## [1.1.2](https://github.com/Tom-Hudson/test-nino/compare/v1.1.1...v1.1.2) (2022-10-01)
 
 
