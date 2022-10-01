@@ -2,7 +2,8 @@
 
 <p> 
   <img src="https://badgen.net/npm/v/test-nino" />
-  <img src="https://badgen.net/packagephobia/publish/test-nino" />
+  <img src="https://badgen.net/bundlephobia/dependency-count/test-nino" />
+  <img src="https://badgen.net/bundlephobia/minzip/test-nino" />
   <img src="https://badgen.net/npm/dt/test-nino" />
   <img src="https://badgen.net/github/last-commit/Tom-Hudson/test-nino" />
   <img src="https://badgen.net/npm/license/test-nino" />
@@ -37,7 +38,7 @@ import * as testNino from 'test-nino';
 const testNino = require('test-nino');
 
 // Deno
-import * as testNino from 'https://deno.land/x/test_nino@X.X.X';
+import * as testNino from "https://deno.land/x/test_nino@vX.X.X/mod.ts";
 ```
 
 ## Available functions
