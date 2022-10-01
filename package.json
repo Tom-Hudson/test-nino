@@ -1,6 +1,6 @@
 {
   "name": "test-nino",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "sideEffects": false,
   "description": "The fastest UK National Insurance number generator (nino). Generates a random valid UK NI number in accordance with NIM39110 guidelines on Gov.uk",
   "homepage": "https://github.com/Tom-Hudson/test-nino#readme",

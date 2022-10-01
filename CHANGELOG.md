@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/Tom-Hudson/test-nino/compare/v1.1.1...v1.1.2) (2022-10-01)
+
+
+### Bug Fixes
+
+* internal links in README.md ([7c2d3a1](https://github.com/Tom-Hudson/test-nino/commit/7c2d3a1a0d828bb029340b66ee3e130047ec5a87))
+
 ## [1.1.1](https://github.com/Tom-Hudson/test-nino/compare/v1.1.0...v1.1.1) (2022-10-01)
 
 
