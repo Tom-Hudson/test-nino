@@ -5,7 +5,17 @@
         "allowSyntheticDefaultImports": true,
         "allowJs": true,
         "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "resolveJsonModule": true,
-        "esModuleInterop": true
-    }
+        "esModuleInterop": true,
+        "outDir": "dist/"
+    },
+    "exclude": [
+        "node_modules",
+        "dist/",
+        "deno_dist/",
+        "src/**/*.deno.ts",
+        "src/**/*.deno.tsx",
+    ]
 }
