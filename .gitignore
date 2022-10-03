@@ -1,4 +1,3 @@
 coverage
-deno_dist
 dist
 node_modules
