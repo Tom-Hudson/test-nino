@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/Tom-Hudson/test-nino/compare/v1.1.4...v1.1.5) (2022-10-03)
+
+
+### Bug Fixes
+
+* stop excluding deno_dist ([4769e02](https://github.com/Tom-Hudson/test-nino/commit/4769e0219db81088796a70a6cc7b25686e0aeccc))
+
 ## [1.1.4](https://github.com/Tom-Hudson/test-nino/compare/v1.1.3...v1.1.4) (2022-10-03)
 
 
