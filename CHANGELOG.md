@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.4](https://github.com/Tom-Hudson/test-nino/compare/v1.1.3...v1.1.4) (2022-10-03)
+
+
+### Bug Fixes
+
+* exclude specs from deno_dist ([9ecc60f](https://github.com/Tom-Hudson/test-nino/commit/9ecc60f4117eb0c3fa9a80346ce940a0e7a265dc))
+* use denoify ([d43a43b](https://github.com/Tom-Hudson/test-nino/commit/d43a43b574c48368513ff5bd35b79b1254e0ab66))
+
 ## [1.1.3](https://github.com/Tom-Hudson/test-nino/compare/v1.1.2...v1.1.3) (2022-10-01)
 
 
