@@ -4,6 +4,7 @@
 **.spec.ts
 CHANGELOG.md
 coverage
+deno_dist
 jest.config.js
 mod.ts
 src
