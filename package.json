@@ -23,7 +23,7 @@
     "watch": "npm run build -- --watch src",
     "lint": "ts-standard ./src",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest"
+    "test": "jest src"
   },
   "keywords": [
     "nino",
