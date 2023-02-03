@@ -1,7 +1,7 @@
 .github
 .gitignore
-**.spec.js
-**.spec.ts
+*.spec.js
+*.spec.ts
 CHANGELOG.md
 coverage
 deno_dist
