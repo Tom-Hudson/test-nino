@@ -38,7 +38,7 @@ import * as testNino from 'test-nino';
 const testNino = require('test-nino');
 
 // Deno
-import * as testNino from "https://deno.land/x/test_nino@vX.X.X/mod.ts";
+import * as testNino from "https://deno.land/x/test_nino@vX.X.X/deno_dist/mod.ts";
 ```
 
 ## Available functions
