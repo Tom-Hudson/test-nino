@@ -1,3 +1,4 @@
 coverage
 dist
 node_modules
+deno_dist/**/*.spec.t
