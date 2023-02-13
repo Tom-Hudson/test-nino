@@ -20,6 +20,7 @@ The fastest random UK National Insurance number generator.
 - [How fast can it be?](#how-fast-can-it-be)
   * [What makes it so fast?](#what-makes-it-so-fast)
 - [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number)
+- [How many valid UK National Insurance numbers are there?](#how-many-valid-uk-national-insurance-numbers-are-there)
 
 ## Getting Started
 
@@ -53,7 +54,7 @@ const nino = testNino.random();
 > Warning: it is not guaranteed that you couldn't generate the same NINO more than once using this method. If you require a unique NINO every time, I suggest you use the [incremental](#incremental) generator
 
 ### incremental
-This method is best if you want to ensure you don't generate a duplicate NINO and utilises a [JavaScript Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) to enumerate through all possible valid UK NI numbers `AA000000A-ZY999999D` (there are 1,492,000,000 in total). 
+This method is best if you want to ensure you don't generate a duplicate NINO and utilises a [JavaScript Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) to enumerate through all possible valid UK NI numbers `AA000000A-ZY999999D` (there are [14,940,000,000 in total](#how-many-valid-uk-national-insurance-numbers-are-there)). 
 
 The generator will enumerate on prefix, number and then suffix.
 
@@ -76,13 +77,13 @@ for(let i = 0; i <= 10000000; i++) {
 ## How fast can it be?
 Here is how `test-nino`'s [random](#random) function fares against other packages:
 
-| package                                                        | Run 1 | Run 2 | Run 3 | Average | Ops/sec |
-|----------------------------------------------------------------|-------|-------|-------|---------|---------|
-| [fake-nino](https://www.npmjs.com/package/fake-nino)           | 3,201 | 3,214 | 3,213 | 3,209   | 186,955 |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino) | 2,497 | 2,459 | 2,430 | 2,460   | 243,902 |
-| **test-nino**                                                  | 1,148 | 1,184 | 1,150 | 1,161   | 516,943 |
+| package                                                        | function | ops/sec                  |
+|----------------------------------------------------------------|----------|--------------------------|
+| [fake-nino](https://www.npmjs.com/package/fake-nino)           | generate | 3,027,256 ops/sec ±0.75% |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino) | generate | 3,876,490 ops/sec ±0.35% |
+| **test-nino**                                                  | random   | 8,162,494 ops/sec ±0.39% |
 
-> Benchmarks ran on an i7 3.0Ghz with 16GB RAM, using Node 16. All times for runs and averages are recorded in milliseconds for 10,000,000 runs
+> Benchmarks ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on an i7 3.0Ghz with 16GB RAM, using Node 16.
 
 As you can see, `test-nino` is more than 2x faster than the next fastest random NI number generator
 
@@ -95,12 +96,30 @@ This costs precious CPU time and [blocks the Node Event Loop](https://nodejs.org
 
 ## What is a valid UK National Insurance number?
 To cite the rules at the time of implementation from [Gov.uk](https://www.gov.uk/hmrc-internal-manuals/national-insurance-manual/nim39110):
-> A NINO is made up of 2 letters, 6 numbers and a final letter, which is always A, B, C, or D.
+> A NINO is made up of 2 letters, 6 numbers and a check letter, which is always A, B, C, or D.
 > 
 > It looks something like this: QQ 12 34 56 A
 >
 >All prefixes are valid except:
 >
->* The characters D, F, I, Q, U, and V are not used as either the first or >second letter of a NINO prefix.
+>* The characters D, F, I, Q, U, and V are not used as either the first or second letter of a NINO prefix.
 >* The letter O is not used as the second letter of a prefix.
 >* Prefixes BG, GB, KN, NK, NT, TN and ZZ are not to be used
+
+## How many valid UK National Insurance numbers are there?
+First, let's consider the restrictions on the first two letters of the NINO prefix:
+
+* The characters D, F, I, Q, U, and V are not used as either the first or second letter of the prefix, so there are 20 possible choices for the first letter (A-Z excluding D, F, I, Q, U, and V) and 19 possible choices for the second letter (A-Z excluding D, F, I, Q, U, V, and O).
+* The prefixes BG, GB, KN, NK, NT, TN and ZZ are not to be used, so there are 20 x 19 - 7 = 373 possible combinations of the first two letters.
+
+Next, let's consider the restrictions on the final letter, which is the check letter:
+
+* The check letter can only be A, B, C, or D, so there are 4 possible check letters.
+
+Finally, let's consider the six numbers in the NINO:
+
+* Each of the six numbers can have 10 possible values (0-9), so there are 10^6 (1 million) possible combinations of the six numbers.
+
+Putting this all together, the number of possible unique NINOs would be:
+
+373 (for the first two letters) x 10^6 (for the six numbers) x 4 (for the final letter) = **14,940,000,000** possible NINOs.
