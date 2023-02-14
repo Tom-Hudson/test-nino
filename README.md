@@ -54,7 +54,7 @@ const nino = testNino.random();
 > Warning: it is not guaranteed that you couldn't generate the same NINO more than once using this method. If you require a unique NINO every time, I suggest you use the [incremental](#incremental) generator
 
 ### incremental
-This method is best if you want to ensure you don't generate a duplicate NINO and utilises a [JavaScript Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) to enumerate through all possible valid UK NI numbers `AA000000A-ZY999999D` (there are [14,940,000,000 in total](#how-many-valid-uk-national-insurance-numbers-are-there)). 
+This method is best if you want to ensure you don't generate a duplicate NINO and utilises a [JavaScript Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) to enumerate through all possible valid UK NI numbers `AA000000A-ZY999999D` (there are [1,492,000,000 in total](#how-many-valid-uk-national-insurance-numbers-are-there)). 
 
 The generator will enumerate on prefix, number and then suffix.
 
@@ -77,11 +77,11 @@ for(let i = 0; i <= 10000000; i++) {
 ## How fast can it be?
 Here is how `test-nino`'s [random](#random) function fares against other packages:
 
-| package                                                        | function | ops/sec                  |
-|----------------------------------------------------------------|----------|--------------------------|
-| [fake-nino](https://www.npmjs.com/package/fake-nino)           | generate | 3,027,256 ops/sec ±0.75% |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino) | generate | 3,876,490 ops/sec ±0.35% |
-| **test-nino**                                                  | random   | 8,162,494 ops/sec ±0.39% |
+| package                                                        | function | ops/sec   |
+|----------------------------------------------------------------|----------|-----------|
+| [fake-nino](https://www.npmjs.com/package/fake-nino)           | generate | 3,027,256 |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino) | generate | 3,876,490 |
+| **test-nino**                                                  | random   | 8,162,494 |
 
 > Benchmarks ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on an i7 3.0Ghz with 16GB RAM, using Node 16.
 
@@ -122,4 +122,4 @@ Finally, let's consider the six numbers in the NINO:
 
 Putting this all together, the number of possible unique NINOs would be:
 
-373 (for the first two letters) x 10^6 (for the six numbers) x 4 (for the final letter) = **14,940,000,000** possible NINOs.
+373 (for the first two letters) x 10^6 (for the six numbers) x 4 (for the final letter) = **1,492,000,000** possible NINOs.
