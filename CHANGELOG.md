@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/Tom-Hudson/test-nino/compare/v1.1.6...v1.1.7) (2023-02-14)
+
+
+### Bug Fixes
+
+* correct README.md ([1668da3](https://github.com/Tom-Hudson/test-nino/commit/1668da3a6dd1f4ce416b3bded6ec366bb01fbf37))
+
 ## [1.1.6](https://github.com/Tom-Hudson/test-nino/compare/v1.1.5...v1.1.6) (2023-02-13)
 
 
