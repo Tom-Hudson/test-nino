@@ -96,7 +96,7 @@ This costs precious CPU time and [blocks the Node Event Loop](https://nodejs.org
 
 ## What is a valid UK National Insurance number?
 To cite the rules at the time of implementation from [Gov.uk](https://www.gov.uk/hmrc-internal-manuals/national-insurance-manual/nim39110):
-> A NINO is made up of 2 letters, 6 numbers and a check letter, which is always A, B, C, or D.
+> A NINO is made up of 2 letters, 6 numbers and a suffix, which is always A, B, C, or D.
 > 
 > It looks something like this: QQ 12 34 56 A
 >
@@ -112,9 +112,9 @@ First, let's consider the restrictions on the first two letters of the NINO pref
 * The characters D, F, I, Q, U, and V are not used as either the first or second letter of the prefix, so there are 20 possible choices for the first letter (A-Z excluding D, F, I, Q, U, and V) and 19 possible choices for the second letter (A-Z excluding D, F, I, Q, U, V, and O).
 * The prefixes BG, GB, KN, NK, NT, TN and ZZ are not to be used, so there are 20 x 19 - 7 = 373 possible combinations of the first two letters.
 
-Next, let's consider the restrictions on the final letter, which is the check letter:
+Next, let's consider the restrictions on the final letter, which is the suffix:
 
-* The check letter can only be A, B, C, or D, so there are 4 possible check letters.
+* The suffix can only be A, B, C, or D, so there are 4 possible suffixs.
 
 Finally, let's consider the six numbers in the NINO:
 
