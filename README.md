@@ -25,13 +25,13 @@ The fastest random UK National Insurance number generator.
 ## Getting Started
 
 ### Install
+You can install the [test-nino](https://www.npmjs.com/package/test-nino) package from npm:
 ```
 npm i test-nino
 ```
 
 ### Import
-
- ```js
+```js
 // ESM/TypeScript
 import * as testNino from 'test-nino';
 
