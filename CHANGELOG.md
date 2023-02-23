@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/Tom-Hudson/test-nino/compare/v1.1.7...v1.2.0) (2023-02-23)
+
+
+### Features
+
+* add is-valid-legth-rule ([f210a0f](https://github.com/Tom-Hudson/test-nino/commit/f210a0fc7ca051abf2713d31637bfbbd28855841))
+* add is-valid-length rule ([388d301](https://github.com/Tom-Hudson/test-nino/commit/388d301755df6bdf9042308539328fd999ff8efe))
+* add is-valid-prefix rule ([1296376](https://github.com/Tom-Hudson/test-nino/commit/1296376395a62cfd8c90218be589bfd981c8125f))
+* update description ([1445c4d](https://github.com/Tom-Hudson/test-nino/commit/1445c4db5ad267e3c46d6dbc1422cf807694bbed))
+
+
+### Bug Fixes
+
+* remove workflow change ([71e5fc0](https://github.com/Tom-Hudson/test-nino/commit/71e5fc079202f612292b0495d5cf3844b8ea6020))
+
 ## [1.1.7](https://github.com/Tom-Hudson/test-nino/compare/v1.1.6...v1.1.7) (2023-02-14)
 
 
