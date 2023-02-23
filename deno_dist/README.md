@@ -20,6 +20,8 @@ The fastest NINO (UK National Insurance number) generator. Generates a random UK
 - [Available functions](#available-functions)
   * [random](#random)
   * [incremental](#incremental)
+  * [validate](#validate)
+  * [normalise](#normalise)
 - [How fast can it be?](#how-fast-can-it-be)
   * [What makes it so fast?](#what-makes-it-so-fast)
 - [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number)
@@ -79,6 +81,7 @@ for(let i = 0; i <= 10000000; i++) {
 
 ### validate
 This function will validate the provided NINO and return a detailed response on which rule has passed and failed.
+> It is expected that the NINO is already without formatting etc. - you can use [`normalise`](#normalise) to prepare the NINO if required.
 
 ```js
 // A valid NINO
@@ -104,6 +107,14 @@ testNino.validate(1);
 // }
 ```
 > The object returned will always have an `outcome` property but the function fails fast and so will only return a result for each tested element of the NINO.
+
+### normalise
+This function will normalise NINOs into a format without whitespace and using uppercase characters only.
+```js
+testNino.normalise('aa 00 00 00 a') // AA000000A
+testNino.normalise('BB 123456 B') // BB123456B
+```
+> This can be used as a primer for the [`validate`](#validate) function
 
 ## How fast can it be?
 Here is how `test-nino`'s [random](#random) function fares against other packages:
