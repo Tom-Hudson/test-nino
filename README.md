@@ -12,7 +12,7 @@
   </a>
 </p>
 
-The fastest random UK National Insurance number generator.
+The fastest NINO (UK National Insurance number) generator. Generates a random UK NI number in accordance with NIM39110 on Gov.uk. Also includes functions to normalise and validate a NINOs.
 
 - [Getting Started](#getting-started)
   * [Install](#install)
@@ -75,7 +75,7 @@ for(let i = 0; i <= 10000000; i++) {
 }
 ```
 
-> The `done` property will only return `true` once all possible combinations have been enumerated (with the value `ZY999999D`).
+> The `done` property will only return `true` once all possible combinations have been enumerated.
 
 ## How fast can it be?
 Here is how `test-nino`'s [random](#random) function fares against other packages:
