@@ -2,7 +2,7 @@
   "name": "test-nino",
   "version": "1.1.7",
   "sideEffects": false,
-  "description": "The fastest UK National Insurance number generator (nino). Generates a random valid UK NI number in accordance with NIM39110 guidelines on Gov.uk",
+  "description": "The fastest NINO (UK National Insurance number) generator. Generates a random UK NI number in accordance with NIM39110 on Gov.uk. Also includes functions to normalise and validate a NINOs.",
   "homepage": "https://github.com/Tom-Hudson/test-nino#readme",
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean --minify && denoify",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --minify",
+    "deno:build": "denoify && find deno_dist -type f -name '*.spec.ts' -delete",
     "watch": "npm run build -- --watch src",
     "lint": "ts-standard ./src",
     "lint:fix": "npm run lint -- --fix",
@@ -42,21 +43,22 @@
     "random",
     "random_uk_nino",
     "fake-nino",
-    "fng-nino-tools"
+    "fng-nino-tools",
+    "avris-generator"
   ],
   "author": {
     "name": "Tom Hudson",
     "email": "email@tom-hudson.uk",
     "url": "https://tom-hudson.uk"
   },
-  "license": "GNU GPLv3",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "denoify": "^1.4.10",
-    "jest": "^29.4.2",
+    "jest": "^29.4.3",
     "ts-jest": "^29.0.5",
     "ts-standard": "^12.0.2",
-    "tsup": "^6.6.2",
+    "tsup": "^6.6.3",
     "typescript": "^4.9.5"
   }
 }
