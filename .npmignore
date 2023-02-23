@@ -6,6 +6,5 @@ CHANGELOG.md
 coverage
 deno_dist
 jest.config.js
-mod.ts
 src
 tsconfig.json
