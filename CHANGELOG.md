@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/Tom-Hudson/test-nino/compare/v1.1.7...v1.2.0) (2023-02-23)
+
+
+### Features
+
+* add normalise function ([b96a82e](https://github.com/Tom-Hudson/test-nino/commit/b96a82ee0e71d7efbef19531b3bb15d11fa88832))
+* add validate function ([cc7fab1](https://github.com/Tom-Hudson/test-nino/commit/cc7fab1f6b014c092b8a36d531e7d5820a24bfe8))
+
 ## [1.1.7](https://github.com/Tom-Hudson/test-nino/compare/v1.1.6...v1.1.7) (2023-02-14)
 
 
