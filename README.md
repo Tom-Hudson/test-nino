@@ -7,6 +7,9 @@
   <img src="https://badgen.net/npm/dt/test-nino" />
   <img src="https://badgen.net/github/last-commit/Tom-Hudson/test-nino" />
   <img src="https://badgen.net/npm/license/test-nino" />
+  <a href="https://codecov.io/github/Tom-Hudson/test-nino" > 
+    <img src="https://codecov.io/github/Tom-Hudson/test-nino/branch/master/graph/badge.svg?token=XEMCXN2P7A"/> 
+  </a>
 </p>
 
 The fastest random UK National Insurance number generator.
@@ -77,15 +80,16 @@ for(let i = 0; i <= 10000000; i++) {
 ## How fast can it be?
 Here is how `test-nino`'s [random](#random) function fares against other packages:
 
-| package                                                        | function | ops/sec   |
-|----------------------------------------------------------------|----------|-----------|
-| [fake-nino](https://www.npmjs.com/package/fake-nino)           | generate | 3,027,256 |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino) | generate | 3,876,490 |
-| **test-nino**                                                  | random   | 8,162,494 |
+| package                                                          | function | ops/sec    |
+|------------------------------------------------------------------|----------|------------|
+| [fake-nino](https://www.npmjs.com/package/fake-nino)             | generate | 5,810,480  |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino).  | generate | 6,340,348  |
+| [avris-generator](https://www.npmjs.com/package/avris-generator) | generate | 2,872,739  |
+| **test-nino**                                                    | random   | 16,899,369 |
 
-> Benchmarks ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on an i7 3.0Ghz with 16GB RAM, using Node 16.
+> Benchmarks ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on an Apple Mac M1 with 16GB RAM, using Node 18.
 
-As you can see, `test-nino` is more than 2x faster than the next fastest random NI number generator
+As you can see, `test-nino` is more than 2.5x faster than the next fastest random NI number generator
 
 ### What makes it so fast?
 Other packages use loops which go through the process of `Generate random NINO > is it valid? > no > repeat`, until a valid nino is given.

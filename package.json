@@ -43,7 +43,8 @@
     "random",
     "random_uk_nino",
     "fake-nino",
-    "fng-nino-tools"
+    "fng-nino-tools",
+    "avris-generator"
   ],
   "author": {
     "name": "Tom Hudson",
