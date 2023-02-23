@@ -20,6 +20,7 @@ The fastest NINO (UK National Insurance number) generator. Generates a random UK
 - [Available functions](#available-functions)
   * [random](#random)
   * [incremental](#incremental)
+  * [validate](#validate)
 - [How fast can it be?](#how-fast-can-it-be)
   * [What makes it so fast?](#what-makes-it-so-fast)
 - [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number)
@@ -77,13 +78,41 @@ for(let i = 0; i <= 10000000; i++) {
 
 > The `done` property will only return `true` once all possible combinations have been enumerated.
 
+### validate
+This function will validate the provided NINO and return a detailed response on which rule has passed and failed.
+
+```js
+// A valid NINO
+testNino.validate("AB123456C");
+// {
+//   rules: {
+//     type: true,
+//     length: true,
+//     prefix: true,
+//     number: true,
+//     suffix: true
+//   },
+//   outcome: true
+// }
+
+// An invalid NINO
+testNino.validate(1);
+// {
+//   rules: {
+//     type: false,
+//   },
+//   outcome: false
+// }
+```
+> The object returned will always have an `outcome` property but the function fails fast and so will only return a result for each tested element of the NINO.
+
 ## How fast can it be?
 Here is how `test-nino`'s [random](#random) function fares against other packages:
 
 | package                                                          | function | ops/sec    |
 |------------------------------------------------------------------|----------|------------|
 | [fake-nino](https://www.npmjs.com/package/fake-nino)             | generate | 5,810,480  |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino).  | generate | 6,340,348  |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino)   | generate | 6,340,348  |
 | [avris-generator](https://www.npmjs.com/package/avris-generator) | generate | 2,872,739  |
 | **test-nino**                                                    | random   | 16,899,369 |
 
