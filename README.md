@@ -119,14 +119,23 @@ testNino.normalise('BB 123456 B') // BB123456B
 ## How fast can it be?
 Here is how `test-nino`'s [random](#random) function fares against other packages:
 
-| package                                                          | function | ops/sec    |
-|------------------------------------------------------------------|----------|------------|
-| [fake-nino](https://www.npmjs.com/package/fake-nino)             | generate | 5,810,480  |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino)   | generate | 6,340,348  |
-| [avris-generator](https://www.npmjs.com/package/avris-generator) | generate | 2,872,739  |
-| **test-nino**                                                    | random   | 16,899,369 |
+| package                                                          | version | ops/sec    |
+|------------------------------------------------------------------|---------|------------|
+| [fake-nino](https://www.npmjs.com/package/fake-nino)             | 0.0.1   | 5,810,480  |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino)   | 1.0.3   | 6,340,348  |
+| [avris-generator](https://www.npmjs.com/package/avris-generator) | 0.8.2   | 2,872,739  |
+| **test-nino**                                                    | latest  | 16,899,369 |
 
-> Benchmarks ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on an Apple Mac M1 with 16GB RAM, using Node 18.
+And here is how [validate](#validate) fares against other packages:
+
+| package                                                                                      | version | ops/sec    |
+|----------------------------------------------------------------------------------------------|---------|------------|
+| [valid-nino](https://www.npmjs.com/package/valid-nino)                                       | 1.0.0   |            |
+| [is-national-insurance-number](https://www.npmjs.com/package/is-national-insurance-number)   | 1.0.0   |            |
+| [avris-generator](https://www.npmjs.com/package/avris-generator)                             | 0.8.2   |            |
+| **test-nino**                                                                                | latest  |            |
+
+> Benchmarks ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on an Apple Mac M1 with 16GB RAM, using Node 18. CommonJS imports are used for all packages to keep things even. You can run the benchmarks yourself from the `benchmarks` folder.
 
 As you can see, `test-nino` is more than 2.5x faster than the next fastest random NI number generator
 
