@@ -12,7 +12,7 @@
   </a>
 </p>
 
-The fastest NINO (UK National Insurance number) generator. Generates a random UK NI number in accordance with NIM39110 on Gov.uk. Also includes functions to normalise and validate a NINOs.
+The fastest NINO (UK National Insurance number) generator and validator. Generates and validates UK NI numbers to NIM39110 specifications on Gov.uk.
 
 - [Getting Started](#getting-started)
   * [Install](#install)

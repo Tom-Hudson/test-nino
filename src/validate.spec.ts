@@ -22,7 +22,13 @@ describe('validate', () => {
     { nino: 1, validKeys: [], invalidKeys: ['type'] },
     { nino: 'A', validKeys: ['type'], invalidKeys: ['length'] },
     { nino: 'ZZ000000A', validKeys: ['type', 'length'], invalidKeys: ['prefix'] },
+    { nino: 'AAO00000A', validKeys: ['type', 'length', 'prefix'], invalidKeys: ['number'] },
+    { nino: 'AA0O0000A', validKeys: ['type', 'length', 'prefix'], invalidKeys: ['number'] },
     { nino: 'AA00O000A', validKeys: ['type', 'length', 'prefix'], invalidKeys: ['number'] },
+    { nino: 'AA000O00A', validKeys: ['type', 'length', 'prefix'], invalidKeys: ['number'] },
+    { nino: 'AA0000O0A', validKeys: ['type', 'length', 'prefix'], invalidKeys: ['number'] },
+    { nino: 'AA00000OA', validKeys: ['type', 'length', 'prefix'], invalidKeys: ['number'] },
+    { nino: 'AAOOOOOOA', validKeys: ['type', 'length', 'prefix'], invalidKeys: ['number'] },
     { nino: 'AA000000E', validKeys: ['type', 'length', 'prefix', 'number'], invalidKeys: ['suffix'] }
   ])('should return invalid result for $nino with valid keys $validKeys and invalid keys $invalidKeys', ({
     nino,
