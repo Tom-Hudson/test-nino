@@ -1,0 +1,12 @@
+{
+  "name": "@test-nino/random",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "devDependencies": {
+    "fake-nino": "^0.0.1",
+    "random_uk_nino": "^1.0.3",
+    "avris-generator": "^0.8.2"
+  }
+}

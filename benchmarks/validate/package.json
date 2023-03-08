@@ -1,0 +1,13 @@
+{
+  "name": "@test-nino/validate",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "devDependencies": {
+    "avris-generator": "^0.8.2",
+    "benchmark": "^2.1.4",
+    "is-national-insurance-number": "^1.0.0",
+    "valid-nino": "^1.0.0"
+  }
+}
