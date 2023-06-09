@@ -1,6 +1,6 @@
 {
   "name": "test-nino",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "sideEffects": false,
   "description": "The fastest NINO (UK National Insurance number) generator and validator. Generates and validates UK NI numbers to NIM39110 specifications on Gov.uk.",
   "homepage": "https://github.com/Tom-Hudson/test-nino#readme",
