@@ -1,5 +1,6 @@
 .github
 .gitignore
+.gitpod.yml
 *.spec.js
 *.spec.ts
 CHANGELOG.md
@@ -7,4 +8,5 @@ coverage
 deno_dist
 jest.config.js
 src
+benchmarks
 tsconfig.json
