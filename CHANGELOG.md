@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Tom-Hudson/test-nino/compare/v1.2.0...v1.2.1) (2023-06-09)
+
+
+### Bug Fixes
+
+* export ValidateResult interface ([d5212cb](https://github.com/Tom-Hudson/test-nino/commit/d5212cbd4dba96a4d09539737c8ea857599d2806))
+
 ## [1.2.0](https://github.com/Tom-Hudson/test-nino/compare/v1.1.7...v1.2.0) (2023-02-23)
 
 
