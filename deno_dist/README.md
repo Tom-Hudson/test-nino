@@ -14,6 +14,8 @@
 
 The fastest NINO (UK National Insurance number) generator and validator. Generates and validates UK NI numbers to NIM39110 specifications on Gov.uk.
 
+`test-nino` is a performance focused and has zero dependencies. The [benchmarks](#benchmarks) speak for themselves.
+
 - [Getting Started](#getting-started)
   * [Install](#install)
   * [Import](#import)
@@ -22,8 +24,7 @@ The fastest NINO (UK National Insurance number) generator and validator. Generat
   * [incremental](#incremental)
   * [validate](#validate)
   * [normalise](#normalise)
-- [How fast can it be?](#how-fast-can-it-be)
-  * [What makes it so fast?](#what-makes-it-so-fast)
+- [Benchmarks](#benchmarks)
 - [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number)
 - [How many valid UK National Insurance numbers are there?](#how-many-valid-uk-national-insurance-numbers-are-there)
 
@@ -48,18 +49,17 @@ import * as testNino from "https://deno.land/x/test_nino@vX.X.X/mod.ts";
 ```
 
 ## Available functions
-There are 2 available functions exposed:
 
 ### random
-To generate a single valid NINO, you can simply run the `random` function:
+Used to generate a random NINO:
  ```js
 const nino = testNino.random();
 // Returns a valid UK National Insurance number e.g. AA000000A
 ```
-> Warning: it is not guaranteed that you couldn't generate the same NINO more than once using this method. If you require a unique NINO every time, I suggest you use the [incremental](#incremental) generator
+> Warning: it is not guaranteed that you couldn't generate the same NINO more than once using this method. If you require a unique NINO every time, I suggest you use the [incremental](#incremental) generator.
 
 ### incremental
-This method is best if you want to ensure you don't generate a duplicate NINO and utilises a [JavaScript Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) to enumerate through all possible valid UK NI numbers `AA000000A-ZY999999D` (there are [1,492,000,000 in total](#how-many-valid-uk-national-insurance-numbers-are-there)). 
+This method is best if you want to ensure you don't generate a duplicate NINO. This function utilises a [JavaScript Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) to enumerate through all possible valid UK NI numbers `AA000000A-ZY999999D` (there are [1,492,000,000 in total](#how-many-valid-uk-national-insurance-numbers-are-there)). 
 
 The generator will enumerate on prefix, number and then suffix.
 
@@ -80,7 +80,7 @@ for(let i = 0; i <= 10000000; i++) {
 > The `done` property will only return `true` once all possible combinations have been enumerated.
 
 ### validate
-This function will validate the provided NINO and return a detailed response on which rule has passed and failed.
+This function will validate the provided NINO and return an object which details which rules have passed or failed.
 > It is expected that the NINO is already without formatting etc. - you can use [`normalise`](#normalise) to prepare the NINO if required.
 
 ```js
@@ -109,33 +109,39 @@ testNino.validate(1);
 > The object returned will always have an `outcome` property but the function fails fast and so will only return a result for each tested element of the NINO.
 
 ### normalise
-This function will normalise NINOs into a format without whitespace and using uppercase characters only.
+This function will normalise NINOs, stripping whitespace and converting it to uppercase characters.
 ```js
 testNino.normalise('aa 00 00 00 a') // AA000000A
 testNino.normalise('BB 123456 B') // BB123456B
 ```
 > This can be used as a primer for the [`validate`](#validate) function
 
-## How fast can it be?
-Here is how `test-nino`'s [random](#random) function fares against other packages:
+## Benchmarks
+All benchmarks are ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on Node v18.16.0. CommonJS imports are used for all packages to keep things fair. You can run the benchmarks yourself from the `benchmarks` folder. Results have been rounded to 3 significant figures to smooth out variances between runs and provide more comparable results.
 
-| package                                                          | function | ops/sec    |
-|------------------------------------------------------------------|----------|------------|
-| [fake-nino](https://www.npmjs.com/package/fake-nino)             | generate | 5,810,480  |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino)   | generate | 6,340,348  |
-| [avris-generator](https://www.npmjs.com/package/avris-generator) | generate | 2,872,739  |
-| **test-nino**                                                    | random   | 16,899,369 |
+### random
+`test-nino` is more than **2.6x faster** than the next fastest random NI number generator:
 
-> Benchmarks ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on an Apple Mac M1 with 16GB RAM, using Node 18.
+| package                                                          | version | ops/sec    |
+|------------------------------------------------------------------|---------|------------|
+| [fake-nino](https://www.npmjs.com/package/fake-nino)             | 0.0.1   | 5,810,000  |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino)   | 1.0.3   | 6,340,000  |
+| [avris-generator](https://www.npmjs.com/package/avris-generator) | 0.8.2   | 2,900,000  |
+| **test-nino**                                                    | latest  | 17,000,000 |
 
-As you can see, `test-nino` is more than 2.5x faster than the next fastest random NI number generator
+> Other packages use loops which go through the process of `Generate random NINO > is it valid? > no > repeat`, until a valid nino is given. This costs precious CPU time and [blocks the Node Event Loop](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/). `test-nino` is made different and instead stores the complete list of valid prefixes which are then picked at random. No loops result in consistent performance that is not guaranteed with other packages. 
 
-### What makes it so fast?
-Other packages use loops which go through the process of `Generate random NINO > is it valid? > no > repeat`, until a valid nino is given.
+### validate
+`test-nino` is more than **14x faster** than the next fastest validate function when validating a valid nino:
 
-This costs precious CPU time and [blocks the Node Event Loop](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/).
+| package                                                                                    | version | valid (AA000000A) | invalid (A)      | invalid (null)   | invalid (AAX00000A) | invalid (AA00000XA) |
+|--------------------------------------------------------------------------------------------|---------|-------------------| -----------------| ---------------- | ------------------- | ------------------- |
+| [valid-nino](https://www.npmjs.com/package/valid-nino)                                     | 1.0.0   | 34,000,000        | 84,600,000       | 64,100,000       | 75,200,000          | 27,000,000          |
+| [is-national-insurance-number](https://www.npmjs.com/package/is-national-insurance-number) | 1.0.0   | 42,800,000        | 1,030,000,000    | 1,030,000,000    | 80,000,000          | 33,000,000          |
+| [avris-generator](https://www.npmjs.com/package/avris-generator)                           | 0.8.2   | 4,190,000         | 232,000 (throws) | 105,000 (throws) | 230,000 (throws)    | 230,000 (throws)    |
+| **test-nino**                                                                              | latest  | 609,000,000       | 1,030,000,000    | 1,030,000,000    | 1,020,000,000       | 601,000,000         |
 
-`test-nino` is made different and instead stores the complete list of valid prefixes which are then picked at random. No loops, so this gives the `random` function a BigO complexity of O(1)
+> Most other packages rely on Regex patterns, the validate function in `test-nino` instead utilises indexed character lookups which are much faster. The function also fails fast, meaning even bigger gains for specific invalid scenarios.
 
 ## What is a valid UK National Insurance number?
 To cite the rules at the time of implementation from [Gov.uk](https://www.gov.uk/hmrc-internal-manuals/national-insurance-manual/nim39110):
@@ -157,7 +163,7 @@ First, let's consider the restrictions on the first two letters of the NINO pref
 
 Next, let's consider the restrictions on the final letter, which is the suffix:
 
-* The suffix can only be A, B, C, or D, so there are 4 possible suffixs.
+* The suffix can only be A, B, C, or D, so there are 4 possible suffixes.
 
 Finally, let's consider the six numbers in the NINO:
 
