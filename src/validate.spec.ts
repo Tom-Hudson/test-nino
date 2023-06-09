@@ -3,6 +3,7 @@ import { validate } from './validate'
 describe('validate', () => {
   it.each([
     'AA000000A',
+    'aa000000a',
     'HL123456C',
     'ZX999999D'
   ])('should return valid result for NINO %s', (nino) => {
