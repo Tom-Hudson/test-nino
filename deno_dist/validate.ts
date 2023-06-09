@@ -1,6 +1,6 @@
 import { validNumbersObj, validPrefixesObj, validSuffixesObj } from './internal/data.ts'
 
-interface ValidateResult {
+export interface ValidateResult {
   rules?: {
     type?: boolean
     length?: boolean
