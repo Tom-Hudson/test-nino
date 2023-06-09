@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.0.0](https://github.com/Tom-Hudson/test-nino/compare/v1.2.0...v1.2.1) (2023-06-09)
+
+### ⚠ BREAKING CHANGES
+ * pass validation in `validate` function when lowercase suffix and prefix are used in nino [d7050b6](https://github.com/Tom-Hudson/test-nino/commit/d7050b68c6c6720ce6c0306fdf7d5c228fef0064)
+
+### Performance
+  * significant perforance improvement for `validate` function, making it the fastest nino validation function available on npm - see [latest benchmarks](https://github.com/Tom-Hudson/test-nino#validate-1)
+  
+### Chores
+  * update development dependencies [af97511](https://github.com/Tom-Hudson/test-nino/commit/af97511bdd802b2dc59a692f1d3e931965e6bee9)
+
+### Bug Fixes
+
+* export ValidateResult interface ([d5212cb](https://github.com/Tom-Hudson/test-nino/commit/d5212cbd4dba96a4d09539737c8ea857599d2806))
+
 ## [1.2.0](https://github.com/Tom-Hudson/test-nino/compare/v1.1.7...v1.2.0) (2023-02-23)
 
 
