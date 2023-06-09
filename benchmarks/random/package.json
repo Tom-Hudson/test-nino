@@ -5,6 +5,7 @@
     "test": "node index.js"
   },
   "devDependencies": {
+    "benchmark": "^2.1.4",
     "fake-nino": "^0.0.1",
     "random_uk_nino": "^1.0.3",
     "avris-generator": "^0.8.2"
