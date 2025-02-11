@@ -5,7 +5,6 @@
 *.spec.ts
 CHANGELOG.md
 coverage
-deno_dist
 jest.config.js
 src
 benchmarks

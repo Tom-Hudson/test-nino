@@ -14,8 +14,6 @@
     "exclude": [
         "node_modules",
         "dist/",
-        "deno_dist/",
-        "src/**/*.deno.ts",
         "benchmarks",
         ".github",
         "coverage"
