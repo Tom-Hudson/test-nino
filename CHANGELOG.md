@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/Tom-Hudson/test-nino/compare/v2.0.0...v2.0.1) (2025-02-11)
+
+
+### Performance Improvements
+
+* mico optimisation of number validation ([23d5f35](https://github.com/Tom-Hudson/test-nino/commit/23d5f359c7f85faf514e2d80d8266c0b36992232))
+
 ## [2.0.0](https://github.com/Tom-Hudson/test-nino/compare/v1.2.0...v1.2.1) (2023-06-09)
 
 ### ⚠ BREAKING CHANGES
