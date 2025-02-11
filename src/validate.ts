@@ -47,67 +47,12 @@ export const validate = (nino: string): ValidateResult => {
     }
   }
 
-  if (validNumbersObj[nino[2]] !== true) {
-    return {
-      rules: {
-        type: true,
-        length: true,
-        prefix: true,
-        number: false
-      },
-      outcome: false
-    }
-  }
-
-  if (validNumbersObj[nino[3]] !== true) {
-    return {
-      rules: {
-        type: true,
-        length: true,
-        prefix: true,
-        number: false
-      },
-      outcome: false
-    }
-  }
-
-  if (validNumbersObj[nino[4]] !== true) {
-    return {
-      rules: {
-        type: true,
-        length: true,
-        prefix: true,
-        number: false
-      },
-      outcome: false
-    }
-  }
-
-  if (validNumbersObj[nino[5]] !== true) {
-    return {
-      rules: {
-        type: true,
-        length: true,
-        prefix: true,
-        number: false
-      },
-      outcome: false
-    }
-  }
-
-  if (validNumbersObj[nino[6]] !== true) {
-    return {
-      rules: {
-        type: true,
-        length: true,
-        prefix: true,
-        number: false
-      },
-      outcome: false
-    }
-  }
-
-  if (validNumbersObj[nino[7]] !== true) {
+  if (validNumbersObj[nino[2]] !== true ||
+    validNumbersObj[nino[3]] !== true ||
+    validNumbersObj[nino[4]] !== true ||
+    validNumbersObj[nino[5]] !== true ||
+    validNumbersObj[nino[6]] !== true ||
+    validNumbersObj[nino[7]] !== true) {
     return {
       rules: {
         type: true,
