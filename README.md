@@ -16,17 +16,20 @@ The fastest NINO (UK National Insurance number) generator and validator. Generat
 
 `test-nino` is a performance focused and has zero dependencies. The [benchmarks](#benchmarks) speak for themselves.
 
-- [Getting Started](#getting-started)
-  * [Install](#install)
-  * [Import](#import)
-- [Available functions](#available-functions)
-  * [random](#random)
-  * [incremental](#incremental)
-  * [validate](#validate)
-  * [normalise](#normalise)
-- [Benchmarks](#benchmarks)
-- [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number)
-- [How many valid UK National Insurance numbers are there?](#how-many-valid-uk-national-insurance-numbers-are-there)
+- [test-nino](#test-nino)
+  - [Getting Started](#getting-started)
+    - [Install](#install)
+    - [Import](#import)
+  - [Available functions](#available-functions)
+    - [random](#random)
+    - [incremental](#incremental)
+    - [validate](#validate)
+    - [normalise](#normalise)
+  - [Benchmarks](#benchmarks)
+    - [random](#random-1)
+    - [validate](#validate-1)
+  - [What is a valid UK National Insurance number?](#what-is-a-valid-uk-national-insurance-number)
+  - [How many valid UK National Insurance numbers are there?](#how-many-valid-uk-national-insurance-numbers-are-there)
 
 ## Getting Started
 
@@ -114,17 +117,18 @@ testNino.normalise('BB 123456 B') // BB123456B
 > This can be used as a primer for the [`validate`](#validate) function
 
 ## Benchmarks
-All benchmarks are ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on Node v18.16.0. CommonJS imports are used for all packages to keep things fair. You can run the benchmarks yourself from the `benchmarks` folder. Results have been rounded to 3 significant figures to smooth out variances between runs and provide more comparable results.
+All benchmarks are ran using [benchmark.js](https://www.npmjs.com/package/benchmark) on Node v24.11.0. CommonJS imports are used for all packages to keep things fair. You can run the benchmarks yourself from the `benchmarks` folder. Results have been rounded to 3 significant figures to smooth out variances between runs and provide more comparable results.
 
 ### random
 `test-nino` is more than **2.6x faster** than the next fastest random NI number generator:
 
 | package                                                          | version | ops/sec    |
 |------------------------------------------------------------------|---------|------------|
-| [fake-nino](https://www.npmjs.com/package/fake-nino)             | 0.0.1   | 5,810,000  |
-| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino)   | 1.0.3   | 6,340,000  |
-| [avris-generator](https://www.npmjs.com/package/avris-generator) | 0.8.2   | 2,900,000  |
-| **test-nino**                                                    | latest  | 17,000,000 |
+| [fake-nino](https://www.npmjs.com/package/fake-nino)             | 0.0.1   | 5,340,000  |
+| [random_uk_nino](https://www.npmjs.com/package/random_uk_nino)   | 1.0.3   | 6,720,000  |
+| [avris-generator](https://www.npmjs.com/package/avris-generator) | 0.8.2   | 4,980,000  |
+| [nino-validator](https://www.npmjs.com/package/nino-validator)   | 1.0.0   | 1,120,000  |
+| **test-nino**                                                    | latest  | 20,400,000 |
 
 > Other packages use loops which go through the process of `Generate random NINO > is it valid? > no > repeat`, until a valid nino is given. This costs precious CPU time and [blocks the Node Event Loop](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/). `test-nino` is made different and instead stores the complete list of valid prefixes which are then picked at random. No loops result in consistent performance that is not guaranteed with other packages. 
 
@@ -136,6 +140,7 @@ All benchmarks are ran using [benchmark.js](https://www.npmjs.com/package/benchm
 | [valid-nino](https://www.npmjs.com/package/valid-nino)                                     | 1.0.0   | 34,000,000        | 84,600,000       | 64,100,000       | 75,200,000          | 27,000,000          |
 | [is-national-insurance-number](https://www.npmjs.com/package/is-national-insurance-number) | 1.0.0   | 42,800,000        | 1,030,000,000    | 1,030,000,000    | 80,000,000          | 33,000,000          |
 | [avris-generator](https://www.npmjs.com/package/avris-generator)                           | 0.8.2   | 4,190,000         | 232,000 (throws) | 105,000 (throws) | 230,000 (throws)    | 230,000 (throws)    |
+| [nino-validator](https://www.npmjs.com/package/nino-validator)                             | 1.0.0   | 1,540,000         | 5,020,000        | 105,000 (throws) | 230,000 (throws)    | 230,000 (throws)    |
 | **test-nino**                                                                              | latest  | 609,000,000       | 1,030,000,000    | 1,030,000,000    | 1,020,000,000       | 601,000,000         |
 
 > Most other packages rely on Regex patterns, the validate function in `test-nino` instead utilises indexed character lookups which are much faster. The function also fails fast, meaning even bigger gains for specific invalid scenarios.
